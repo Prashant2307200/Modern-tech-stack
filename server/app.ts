@@ -7,6 +7,8 @@ const app = new Hono();
 
 app.use('*',logger());
 
+app.get('/',c => c.json({ "test": "Successs" }));
+
 app.route("api/expenses", expenseRote);
 
 app.use('*', serveStatic({ root: './client/dist' }))
